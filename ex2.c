@@ -190,14 +190,14 @@ int main() {
   			printf("Enter a number:\n");
   			scanf(" %d", &hapNum);
   			//input validation
-  			while(hapNum <= 0)
+  			while (hapNum <= 0)
   			{
   				do
   				{
   					clear = scanf("%*[^\n]%*c");
   				}while(clear == -1);
   				printf("Only positive number is allowed, please try again:\n");
-  				scanf(" %d", &cirNum);
+  				scanf(" %d", &hapNum);
   			}
   			//print for later
   			printf("Between 1 and %d only these numbers bring happiness:", hapNum);
