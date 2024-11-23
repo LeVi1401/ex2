@@ -7,7 +7,7 @@ Assignment: ex2
 #include <stdio.h>
 
 int main() {
-  	int choice;
+  	int choice, clear;
   	do
   	{
   		printf("Choose an option:\n	1. Happy Face\n 	2. Balanced Number\n	3. Generous Number\n	4. Circle Of Joy\n	5. Happy Numbers\n	6. Festival Of Laughter\n	7. Exit\n");
@@ -17,8 +17,10 @@ int main() {
   		{
   		// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
   		case 1:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			char eye, nose, mouth;
   			int size;
   			//getting the face parts
@@ -28,7 +30,12 @@ int main() {
   			printf("Enter face size:\n");
   			scanf(" %d", &size);
   			//input validation
-  			while(size <= 0 || size%2 == 0){
+  			while(size <= 0 || size%2 == 0)
+  			{
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
   				printf("The face's size must be an odd and positive number, please try again:\n");
   				scanf(" %d", &size);
   			}
@@ -51,8 +58,10 @@ int main() {
   			printf("/\n");
   			break;
   		case 2:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			int balNum, right = 0, left, length = 0;
   			//getting the number
   			printf("Enter a number:\n");
@@ -60,6 +69,10 @@ int main() {
   			//input validation
   			while(balNum <= 0)
   			{
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
   				printf("Only positive number is allowed, please try again:\n");
   				scanf(" %d", &balNum);
   			}
@@ -89,8 +102,10 @@ int main() {
 
   			break;
   		case 3:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			int genNum, divSum = 0;
   			//getting the number
   			printf("Enter a number:\n");
@@ -98,6 +113,10 @@ int main() {
   			//input validation
   			while(genNum <= 0)
   			{
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
   				printf("Only positive number is allowed, please try again:\n");
   				scanf(" %d", &genNum);
   			}
@@ -112,8 +131,10 @@ int main() {
   				printf("This number does not share.\n");
   			break;
   		case 4:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			int cirNum, cirRevNum, flag = 1, flagRev = 1, temp;
   			//getting the number
   			printf("Enter a number:\n");
@@ -121,10 +142,15 @@ int main() {
   			//input validation
   			while(cirNum <= 0)
   			{
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
   				printf("Only positive number is allowed, please try again:\n");
   				scanf(" %d", &cirNum);
   			}
   			temp = cirNum;
+  			cirRevNum = 0;
   			//getting the reversed number while keeping the original
   			while (temp != 0)
   			{
@@ -132,6 +158,7 @@ int main() {
   				cirRevNum += temp % 10;
   				temp /= 10;
   			}
+  			//checking if normal number is prime
   			for (int i = 2 ; i < cirNum ; i++)
   			{
   				if (cirNum % i == 0)
@@ -145,7 +172,7 @@ int main() {
   				if (cirRevNum % i == 0)
   				{
   					flagRev = 0;
-  					printf("%d", i);
+  					break;
   				}
   			}
   			if ((cirNum != 1) && (flag && flagRev))
@@ -154,8 +181,10 @@ int main() {
   				printf("The circle remains incomplete.\n");
   			break;
   		case 5:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
 			int hapNum, tempHapNum, sumD, d;
   			//getting the number
   			printf("Enter a number:\n");
@@ -163,6 +192,10 @@ int main() {
   			//input validation
   			while(hapNum <= 0)
   			{
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
   				printf("Only positive number is allowed, please try again:\n");
   				scanf(" %d", &cirNum);
   			}
@@ -195,8 +228,10 @@ int main() {
   			printf(" \n");
   			break;
   		case 6:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			int smileNum = 0, cheerNum = 0, n;
   			//getting the numbers and the correct format
   			printf("Enter a smile and cheer number:\n");
@@ -204,17 +239,25 @@ int main() {
   			//input validation
   			while (smileNum == 0 || cheerNum == 0 || (smileNum == cheerNum))
   			{
-  				scanf("%*[^\n]");
-  				scanf("%*c");
+  				do
+  				{
+  					clear = scanf("%*[^\n]%*c");
+  				}while(clear == -1);
 				printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
   				scanf("smile: %d, cheer: %d", &smileNum, &cheerNum);
   			}
+  			do
+  			{
+  				clear = scanf("%*[^\n]%*c");
+  			}while(clear == -1);
   			//getting the maximum number
 			printf("Enter maximum number for the festival:\n");
   			scanf(" %d", &n);
   			//input validation
   			while (n <= 0)
   			{
+  				scanf("%*[^\n]");
+  				scanf("%*c");
   				printf("Only positive maximum number is allowed, please try again:\n");
   				scanf(" %d", &n);
   			}
