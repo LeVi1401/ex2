@@ -156,14 +156,52 @@ int main() {
   		case 5:
   			scanf("%*[^\n]");
   			scanf("%*c");
-
+			int hapNum, tempHapNum, sumD, d;
+  			//getting the number
+  			printf("Enter a number:\n");
+  			scanf(" %d", &hapNum);
+  			//input validation
+  			while(hapNum <= 0)
+  			{
+  				printf("Only positive number is allowed, please try again:\n");
+  				scanf(" %d", &cirNum);
+  			}
+  			//print for later
+  			printf("Between 1 and %d only these numbers bring happiness:", hapNum);
+  			//going through all the numbers from 1 to the chosen number
+  			for(int i = 1 ; i <= hapNum ; i++)
+  			{
+  				//reseting for the calculation
+  				tempHapNum = i;
+  				sumD = 0;
+  				//check wether the number is happy or not (1 = happy, 4 = unhappy)
+  				while (tempHapNum != 4 && tempHapNum != 1)
+  				{
+  					//progress a step
+  					while (tempHapNum != 0)
+  					{
+  						d = tempHapNum % 10;
+  						tempHapNum /= 10;
+  						sumD += (d * d);
+  					}
+  					tempHapNum = sumD;
+  					sumD = 0;
+  				}
+  				//print the happy number
+  				if (tempHapNum == 1)
+  					printf(" %d", i);
+  			}
+  			//space at the end of the line
+  			printf(" \n");
   			break;
   		case 6:
   			scanf("%*[^\n]");
   			scanf("%*c");
   			int smileNum = 0, cheerNum = 0, n;
+  			//getting the numbers and the correct format
   			printf("Enter a smile and cheer number:\n");
   			scanf("smile: %d, cheer: %d", &smileNum, &cheerNum);
+  			//input validation
   			while (smileNum == 0 || cheerNum == 0 || (smileNum == cheerNum))
   			{
   				scanf("%*[^\n]");
@@ -171,14 +209,16 @@ int main() {
 				printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
   				scanf("smile: %d, cheer: %d", &smileNum, &cheerNum);
   			}
+  			//getting the maximum number
 			printf("Enter maximum number for the festival:\n");
   			scanf(" %d", &n);
+  			//input validation
   			while (n <= 0)
   			{
   				printf("Only positive maximum number is allowed, please try again:\n");
   				scanf(" %d", &n);
   			}
-
+			//printing the numbers while changing to cheer, smile and festival when necessary
   			for (int i = 1 ; i <= n ; i++)
   			{
   				if (i % smileNum == 0)
@@ -194,8 +234,6 @@ int main() {
   			}
   			break;
   		case 7:
-  			scanf("%*[^\n]");
-  			scanf("%*c");
   			break;
   		default:
   			choice = 0;
