@@ -156,6 +156,7 @@ int main() {
   		case 5:
   			scanf("%*[^\n]");
   			scanf("%*c");
+
   			break;
   		case 6:
   			scanf("%*[^\n]");
