@@ -17,7 +17,8 @@ int main() {
   		{
   		// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
   		case 1:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			char eye, nose, mouth;
   			int size;
   			//getting the face parts
@@ -50,7 +51,8 @@ int main() {
   			printf("/\n");
   			break;
   		case 2:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			int balNum, right = 0, left, length = 0;
   			//getting the number
   			printf("Enter a number:\n");
@@ -87,7 +89,8 @@ int main() {
 
   			break;
   		case 3:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			int genNum, divSum = 0;
   			//getting the number
   			printf("Enter a number:\n");
@@ -109,7 +112,8 @@ int main() {
   				printf("This number does not share.\n");
   			break;
   		case 4:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			int cirNum, cirRevNum, flag = 1, flagRev = 1, temp;
   			//getting the number
   			printf("Enter a number:\n");
@@ -150,13 +154,47 @@ int main() {
   				printf("The circle remains incomplete.\n");
   			break;
   		case 5:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			break;
   		case 6:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
+  			int smileNum = 0, cheerNum = 0, n;
+  			printf("Enter a smile and cheer number:\n");
+  			scanf("smile: %d, cheer: %d", &smileNum, &cheerNum);
+  			while (smileNum == 0 || cheerNum == 0 || (smileNum == cheerNum))
+  			{
+  				scanf("%*[^\n]");
+  				scanf("%*c");
+				printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+  				scanf("smile: %d, cheer: %d", &smileNum, &cheerNum);
+  			}
+			printf("Enter maximum number for the festival:\n");
+  			scanf(" %d", &n);
+  			while (n <= 0)
+  			{
+  				printf("Only positive maximum number is allowed, please try again:\n");
+  				scanf(" %d", &n);
+  			}
+
+  			for (int i = 1 ; i <= n ; i++)
+  			{
+  				if (i % smileNum == 0)
+  					if (i % cheerNum == 0)
+  						printf("Festival!\n");
+  					else
+  						printf("Smile!\n");
+  				else
+  					if (i % cheerNum == 0)
+  						printf("Cheer!\n");
+  					else
+  						printf("%d\n", i);
+  			}
   			break;
   		case 7:
-  			scanf("%*[^\n]%*c");
+  			scanf("%*[^\n]");
+  			scanf("%*c");
   			break;
   		default:
   			choice = 0;
